@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>咖啡廳投票</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            background: #f8f5f0;
+            font-family: "Segoe UI", "微軟正黑體", Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 18px;
+            box-shadow: 0 4px 32px rgba(109, 139, 116, 0.07);
+            padding: 38px 36px 32px 36px;
+        }
+        h2 {
+            color: #4d5c43;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            padding: 12px;
+            background: #f0e9df;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        label:hover {
+            background: #e6e0d3;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        button {
+            background: #6d8b74;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto 0;
+        }
+        button:hover {
+            background: #4d5c43;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f5e8;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-link a {
+            color: #6d8b74;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid #6d8b74;
+            border-radius: 5px;
+        }
+        .back-link a:hover {
+            background: #6d8b74;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>你最喜歡哪一家咖啡廳？</h2>
+        <form id="voteForm">
+            <div class="form-group">
+                <label><input type="radio" name="cafe" value="one day one day"> one day one day</label>
+            </div>
+            <div class="form-group">
+                <label><input type="radio" name="cafe" value="裝咖所在"> 裝咖所在</label>
+            </div>
+            <div class="form-group">
+                <label><input type="radio" name="cafe" value="White Cube Cafe"> White Cube Cafe</label>
+            </div>
+            <div class="form-group">
+                <label><input type="radio" name="cafe" value="榯玖珈琲所"> 榯玖珈琲所</label>
+            </div>
+            <div class="form-group">
+                <label><input type="radio" name="cafe" value="小客廳咖啡館">小客廳咖啡館</label>
+            </div>
+            <button type="submit">送出</button>
+        </form>
+        
+        <div id="result" class="result">
+            <h3>感謝您的投票！</h3>
+            <p id="selectedCafe"></p>
+        </div>
+        
+        <div class="back-link">
+            <a href="index.html">回到首頁</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('voteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const selectedCafe = document.querySelector('input[name="cafe"]:checked');
+            if (!selectedCafe) {
+                alert('請選擇一間咖啡廳！');
+                return;
+            }
+            
+            // 隱藏表單，顯示結果
+            document.getElementById('voteForm').style.display = 'none';
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('selectedCafe').textContent = '您選擇了：' + selectedCafe.value;
+            
+            // 可以在這裡添加將投票結果存儲到localStorage的邏輯
+            let votes = JSON.parse(localStorage.getItem('cafeVotes') || '{}');
+            votes[selectedCafe.value] = (votes[selectedCafe.value] || 0) + 1;
+            localStorage.setItem('cafeVotes', JSON.stringify(votes));
+        });
+    </script>
+</body>
+</html>

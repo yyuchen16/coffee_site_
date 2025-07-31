@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>小客廳咖啡館 - 彰化咖啡廳</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <style>
+    body.container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-width: 320px;
+      overflow-x: hidden;
+    }
+
+    header {
+      width: 100%;
+      background: #6d8b74;
+      padding: 1rem 0;
+    }
+
+    .top {
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    .top h1 {
+      color: #fff;
+      margin: 0;
+      font-size: 2em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .top h4 {
+      color: #f0e9df;
+      margin: 0.5rem 0;
+      font-weight: 400;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 1rem auto;
+      padding: 0 1rem;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      background: #f0e9df;
+      border-radius: 12px;
+      padding: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul li {
+      margin: 0;
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 0.8rem 1.2rem;
+      color: #6d8b74;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background: #4d5c43;
+      color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    main {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+
+    main .content {
+      width: 100%;
+      max-width: 900px;
+      padding: 2em;
+      margin: 2em auto;
+      background: rgba(255, 255, 255, 0.97);
+      border-radius: 18px;
+      box-shadow: 0 4px 32px rgba(109, 139, 116, 0.07);
+      box-sizing: border-box;
+    }
+
+    .cafe-detail-header {
+      text-align: center;
+      margin-bottom: 2em;
+    }
+    .cafe-detail-header h1 {
+      color: #4d5c43;
+      margin-bottom: 0.3em;
+    }
+    .info-section {
+      background: #f0e9df;
+      border-radius: 16px;
+      padding: 2em;
+      margin-bottom: 2em;
+      box-shadow: 0 4px 18px rgba(109, 139, 116, 0.09);
+    }
+    .info-section h2 {
+      color: #fff;
+      margin-top: 0;
+      margin-bottom: 1em;
+      font-size: 1.5em;
+    }
+    .info-content {
+      line-height: 1.8;
+      color: #5c6c3f;
+    }
+    .image-gallery {
+      display: flex;
+      gap: 1em;
+      justify-content: center;
+      margin: 2em 0;
+      flex-wrap: wrap;
+    }
+    .image-gallery img {
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(109, 139, 116, 0.13);
+      object-fit: cover;
+      width: 300px;
+      height: 200px;
+    }
+    .time-info {
+      text-align: center;
+      color: #6d8b74;
+      font-weight: bold;
+      margin: 2em 0;
+      padding: 1em;
+      background: #f0e9df;
+      border-radius: 8px;
+    }
+    .map-container {
+      display: flex;
+      justify-content: center;
+      margin: 2em 0;
+    }
+    .map-container iframe {
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(109, 139, 116, 0.09);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    /* 平板設備 */
+    @media (max-width: 1024px) {
+      .top h1 {
+        font-size: 1.8em;
+      }
+      nav ul {
+        gap: 0.3rem;
+        padding: 0.4rem;
+      }
+      nav ul li a {
+        padding: 0.7rem 1rem;
+        font-size: 0.95em;
+      }
+      main .content {
+        width: 90%;
+        padding: 1.5em;
+      }
+      .info-section {
+        padding: 1.5em;
+      }
+      .image-gallery img {
+        width: 250px;
+        height: 170px;
+      }
+    }
+
+    /* 手機設備 */
+    @media (max-width: 768px) {
+      .top {
+        padding: 0.5rem 0;
+      }
+      .top h1 {
+        font-size: 1.5em;
+      }
+      .top h4 {
+        font-size: 0.9em;
+      }
+      nav {
+        padding: 0 0.5rem;
+      }
+      nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.5rem;
+      }
+      nav ul li a {
+        text-align: center;
+        padding: 0.8rem;
+        border-radius: 6px;
+        margin: 0.2rem 0;
+      }
+      main {
+        padding: 0 0.5rem;
+      }
+      main .content {
+        width: 100%;
+        padding: 1.2em;
+        margin: 1em auto;
+      }
+      .cafe-detail-header h1 {
+        font-size: 1.5em;
+      }
+      .info-section {
+        padding: 1.2em;
+        margin-bottom: 1.5em;
+      }
+      .info-section h2 {
+        font-size: 1.2em;
+      }
+      .info-content {
+        font-size: 0.95em;
+      }
+      .image-gallery {
+        gap: 0.8em;
+      }
+      .image-gallery img {
+        width: 100%;
+        height: 200px;
+      }
+      .map-container iframe {
+        height: 350px;
+      }
+    }
+
+    /* 小型手機設備 */
+    @media (max-width: 480px) {
+      .cafe-detail-header h1 {
+        font-size: 1.3em;
+      }
+      .info-section {
+        padding: 1em;
+      }
+      .image-gallery img {
+        height: 180px;
+      }
+      .map-container iframe {
+        height: 300px;
+      }
+    }
+  </style>
+  <body class="container">
+    <header>
+      <div class="top">
+        <h1>☆ 探探彰化咖啡廳 ☆</h1>
+        <h4 style="color: beige">| 彰師大寶山校區附近的5間可愛咖啡廳! |</h4>
+        <hr />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="./index.html">introduce!</a></li>
+          <li><a href="./one.html">Onedayoneday</a></li>
+          <li><a href="./two.html">裝咖所在</a></li>
+          <li><a href="./three.html">White Cube Cafe</a></li>
+          <li><a href="./four.html">榯玖珈琲所</a></li>
+          <li><a class="active" href="./five.html">小客廳咖啡館</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="content">
+        <div class="cafe-detail-header">
+          <h1>小客廳咖啡館</h1>
+          <p>溫馨舒適的空間，就像在家的客廳一樣自在</p>
+        </div>
+        <div class="info-section">
+          <h2>📍 店家資訊</h2>
+          <div class="info-content">
+            <p>
+              <strong>地址：</strong
+              >彰化縣彰化市卦山路8-1號38室（位於八卦山大佛風景區的卦山村美學生活聚落內）
+            </p>
+            <p>
+              <strong>營業時間：</strong><br />
+              週二、週三、週五：12:00–18:00<br />
+              週六、週日：09:00–19:00<br />
+              公休日：週一、週四
+            </p>
+            <p><strong>聯絡電話：</strong>0917-430-129</p>
+            <p>
+              <strong>社群平台：</strong>Facebook 粉絲專頁、Instagram
+              @bagua.livingroom2021
+            </p>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2>🌟 店家特色</h2>
+          <div class="info-content">
+            <p>
+              小客廳咖啡館由三位熱愛咖啡與生活美學的女生共同經營，店名「小客廳」象徵著一個溫馨、自在的空間，讓每位來訪的客人都能感受到家的溫暖。
+            </p>
+            <p>
+              店內裝潢以小清新風格為主，搭配洗石子地板和綠意盎然的植栽，營造出舒適的用餐環境。此外，店內對寵物友善，常有可愛的柴犬店長「NO寶」出沒，為店內增添不少溫馨氣氛。
+            </p>
+          </div>
+        </div>
+
+        <div class="image-gallery">
+          <img src="img/living1.png" alt="小客廳咖啡館內部環境" />
+          <img src="img/living2.png" alt="小客廳咖啡館餐點" />
+        </div>
+
+        <div class="info-section">
+          <h2>🍽 推薦餐點</h2>
+          <div class="info-content">
+            <p>
+              <strong>有緣人肉桂捲：</strong
+              >每日限量供應的招牌甜點，外酥內軟，肉桂香氣濃郁，深受顧客喜愛，被譽為「有緣人才吃得到」的美味。
+            </p>
+            <p>
+              <strong>手沖咖啡：</strong
+              >店家精選多款單品咖啡豆，現點現沖，保留咖啡最純粹的風味，讓人每一口都能感受到咖啡的香醇。
+            </p>
+            <p>
+              <strong>冰滴咖啡「莫札特」：</strong
+              >特別推薦的冰滴咖啡，帶有果香與甜味，口感順口，適合喜歡清爽口感的咖啡愛好者。
+            </p>
+            <p>
+              <strong>早午餐輕食：</strong
+              >提供多樣化的早午餐選擇，如特製三明治、沙拉等，搭配一杯咖啡，為一天注入滿滿能量。
+            </p>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2>🏞 卦山村美學生活聚落</h2>
+          <div class="info-content">
+            <p>
+              小客廳咖啡館位於卦山村美學生活聚落內，這裡聚集了多位熱愛生活美學的藝術家與創作者，各自經營充滿個性的工作室，形成一個獨特的文化聚落。卦山村不僅有咖啡館，還有各式各樣的文創店鋪，讓人可以在品味咖啡的同時，感受豐富的人文氣息。
+            </p>
+          </div>
+        </div>
+
+        <div class="time-info">離彰師大寶山校區騎車需要: 8 分鐘</div>
+
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3642.6968665033733!2d120.54923819999998!3d24.076977200000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346939429423cdcb%3A0x3bedfa95323c3dac!2z5bCP5a6i5buz5ZKW5ZWh6aSo!5e0!3m2!1szh-TW!2stw!4v1749024317235!5m2!1szh-TW!2stw"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
+        </div>
+      </div>
+    </main>
+    <footer>&copy; 2024 彰化咖啡廳地圖 | Designed by Coffee Lovers</footer>
+  </body>
+</html>

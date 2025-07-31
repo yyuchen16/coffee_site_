@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>一天一天 ONE DAY ONE DAY</title>
+    <link rel="stylesheet" href="style.css" />
+  <style>
+    body.container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-width: 320px;
+      overflow-x: hidden;
+      background: linear-gradient(120deg, #f8f5f0 60%, #e6e3d3 100%);
+      font-family: "Segoe UI", "微軟正黑體", Arial, sans-serif;
+    }
+
+    header {
+      width: 100%;
+      background: #6d8b74;
+      padding: 1rem 0;
+      color: #fff;
+      border-radius: 0 0 24px 24px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .top {
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    .top h1 {
+      color: #fff;
+      margin: 0;
+      padding-top: 32px;
+      font-size: 2.7em;
+      letter-spacing: 2.5px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .top h4 {
+      color: #f5f5dc !important;
+      text-align: center;
+      margin: 0;
+      font-weight: 400;
+      letter-spacing: 1px;
+      font-size: 1.15em;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 1rem auto;
+      padding: 0 1rem;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 22px 0 0 0;
+      background: #f0e9df;
+      border-radius: 14px;
+      box-shadow: 0 2px 10px rgba(109, 139, 116, 0.07);
+      gap: 0.5rem;
+      padding: 0.5rem;
+    }
+
+    nav ul li {
+      margin: 0;
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 10px 22px;
+      color: #6d8b74;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 1.08em;
+      transition: background 0.22s, color 0.22s, box-shadow 0.22s;
+      white-space: nowrap;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+      background: #6d8b74;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(109, 139, 116, 0.13);
+    }
+
+    main {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+
+    main .content {
+      width: 100%;
+      max-width: 900px;
+      padding: 2em;
+      margin: 36px auto 24px auto;
+      background: rgba(255, 255, 255, 0.97);
+      border-radius: 18px;
+      box-shadow: 0 4px 32px rgba(109, 139, 116, 0.07);
+      box-sizing: border-box;
+    }
+
+    .cafe-detail-header {
+      text-align: center;
+      margin-bottom: 2em;
+    }
+    
+    .cafe-detail-header h1 {
+      color: #4d5c43;
+      margin-bottom: 0.3em;
+      font-size: 2.2em;
+    }
+    
+    .info-section {
+      background: #f0e9df;
+      border-radius: 16px;
+      padding: 2em;
+      margin-bottom: 2em;
+      box-shadow: 0 4px 18px rgba(109, 139, 116, 0.09);
+    }
+    
+    .info-section h2 {
+      color: #fff;
+      margin-top: 0;
+      margin-bottom: 1em;
+      font-size: 1.5em;
+    }
+    
+    .info-content {
+      line-height: 1.8;
+      color: #5c6c3f;
+      font-size: 1.1em;
+    }
+    
+    .image-gallery {
+      display: flex;
+      gap: 1em;
+      justify-content: center;
+      margin: 2em 0;
+      flex-wrap: wrap;
+    }
+    
+    .image-gallery img {
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(109, 139, 116, 0.13);
+      object-fit: cover;
+      width: 300px;
+      height: 200px;
+    }
+    
+    .time-info {
+      text-align: center;
+      color: #6d8b74;
+      font-weight: bold;
+      margin: 2em 0;
+      padding: 1em;
+      background: #f0e9df;
+      border-radius: 8px;
+      font-size: 1.1em;
+    }
+    
+    .map-container {
+      display: flex;
+      justify-content: center;
+      margin: 2em 0;
+    }
+    
+    .map-container iframe {
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(109, 139, 116, 0.09);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    footer {
+      text-align: center;
+      color: #aaa;
+      font-size: 1em;
+      margin: 36px 0 16px 0;
+      letter-spacing: 1px;
+      background: transparent;
+    }
+
+    /* 平板設備 */
+    @media (max-width: 1024px) {
+      .top h1 {
+        font-size: 1.8em;
+      }
+      nav ul {
+        gap: 0.3rem;
+        padding: 0.4rem;
+      }
+      nav ul li a {
+        padding: 0.7rem 1rem;
+        font-size: 0.95em;
+      }
+      main .content {
+        width: 90%;
+        padding: 1.5em;
+      }
+      .info-section {
+        padding: 1.5em;
+      }
+      .image-gallery img {
+        width: 250px;
+        height: 170px;
+      }
+    }
+
+    /* 手機設備 */
+    @media (max-width: 768px) {
+      .top {
+        padding: 0.5rem 0;
+      }
+      .top h1 {
+        font-size: 1.3em;
+        padding-top: 18px;
+      }
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.2rem;
+      }
+      nav ul li {
+        width: 90%;
+      }
+      nav ul li a {
+        padding: 8px 8px;
+        font-size: 1em;
+        text-align: center;
+      }
+      main .content {
+        padding: 8px 2vw 8px 2vw;
+        margin: 20px auto;
+        border-radius: 12px;
+      }
+      .info-section {
+        padding: 1em;
+      }
+      .image-gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+      .image-gallery img {
+        width: 100%;
+        max-width: 300px;
+        height: 180px;
+      }
+    }
+
+    /* 小型手機設備 */
+    @media (max-width: 480px) {
+      .top h1 {
+        font-size: 1.5em;
+      }
+      .cafe-detail-header h1 {
+        font-size: 1.5em;
+      }
+      .info-section h2 {
+        font-size: 1.2em;
+      }
+    }
+  </style>
+  </head>
+  <body class="container">
+    <header>
+      <div class="top">
+        <h1>☆ 探探彰化咖啡廳 ☆</h1>
+        <h4 style="color: beige">| 彰師大寶山校區附近的5間可愛咖啡廳! |</h4>
+        <hr />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">introduce!</a></li>
+          <li><a class="active" href="./one.html">Onedayoneday</a></li>
+          <li><a href="./two.html">裝咖所在</a></li>
+          <li><a href="./three.html">White Cube Cafe</a></li>
+          <li><a href="./four.html">榯玖珈琲所</a></li>
+          <li><a href="./five.html">小客廳咖啡館</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="content">
+        <div class="cafe-detail-header">
+          <h1>一天一天 ONE DAY ONE DAY</h1>
+          <p style="color: #888; font-style: italic;">貓咪超級可愛，戚風蛋糕很好吃！</p>
+        </div>
+        
+        <div class="info-section">
+          <h2>📍 店家資訊</h2>
+          <div class="info-content">
+            <p><strong>地址：</strong>彰化市寶山路XX號</p>
+            <p><strong>電話：</strong>04-XXXX-XXXX</p>
+            <p>
+              <strong>營業時間：</strong><br />
+              10:00 - 19:00（週一公休）
+            </p>
+            <p><strong>社群平台：</strong>Facebook、Instagram</p>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2>🌟 店家特色</h2>
+          <div class="info-content">
+            <p>
+              一天一天咖啡廳是一間充滿溫馨氣氛的貓咪咖啡廳，店內有三隻可愛的貓咪陪伴客人度過悠閒時光。店內裝潢簡約溫馨，非常適合拍照打卡，也是許多學生喜歡來念書的地方。
+            </p>
+            <p>
+              店內的戚風蛋糕是招牌甜點，口感鬆軟不膩，搭配手沖咖啡更是絕配。整體環境安靜舒適，很有讀書氣氛，是學生族群的最愛。
+            </p>
+          </div>
+        </div>
+
+        <div class="image-gallery">
+          <img src="img/oneday1.png" alt="一天一天咖啡廳內部環境" />
+          <img src="img/oneday2.png" alt="一天一天咖啡廳貓咪和餐點" />
+        </div>
+
+        <div class="info-section">
+          <h2>🍽 推薦餐點</h2>
+          <div class="info-content">
+            <p>
+              <strong>戚風蛋糕：</strong>店內招牌甜點，口感鬆軟濕潤，甜度適中不膩口，是許多客人必點的經典選擇。
+            </p>
+            <p>
+              <strong>手沖咖啡：</strong>使用精選咖啡豆現點現沖，保留咖啡最原始的香氣與風味，每一杯都是用心製作。
+            </p>
+            <p>
+              <strong>貓咪陪伴：</strong>店內三隻可愛貓咪會在店內走動，讓客人在享用餐點的同時，也能感受到毛孩帶來的療癒感。
+            </p>
+          </div>
+        </div>
+
+        <div class="time-info">離彰師大寶山校區騎車需要: 6 分鐘</div>
+
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3642.234093868007!2d120.5566667!3d24.0903333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3469390cd532688f%3A0x7f0631054dcf284e!2z5LiA5aSp5LiA5aSp!5e0!3m2!1szh-TW!2stw!4v1627881234567!5m2!1szh-TW!2stw"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
+        </div>
+      </div>
+    </main>
+    <footer>&copy; 2024 彰化咖啡廳地圖 | Designed by Coffee Lovers</footer>
+  </body>
+</html>

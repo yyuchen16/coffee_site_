@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>彰化咖啡廳</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <style>
+    /* 重置和基礎樣式 - 確保一致性 */
+    * {
+      box-sizing: border-box;
+    }
+
+    body.container {
+      background: #f8f5f0 !important;
+      font-family: "Segoe UI", "微軟正黑體", Arial, sans-serif !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      min-height: 100vh;
+      width: 100%;
+    }
+    header {
+      background: #6d8b74 !important;
+      color: #fff !important;
+      padding-bottom: 10px;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+      width: 100%;
+    }
+    .top h1 {
+      margin: 0 !important;
+      padding-top: 30px;
+      font-size: 2.5em;
+      letter-spacing: 2px;
+      text-align: center;
+      color: #fff !important;
+    }
+    .top h4 {
+      text-align: center;
+      margin: 0 !important;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+    nav ul {
+      display: flex !important;
+      flex-wrap: wrap;
+      justify-content: center;
+      list-style: none !important;
+      padding: 0.5rem !important;
+      margin: 22px 0 0 0 !important;
+      background: #f0e9df !important;
+      border-radius: 14px;
+      box-shadow: 0 2px 10px rgba(109, 139, 116, 0.07);
+      gap: 0.5rem;
+    }
+    nav ul li {
+      margin: 0 !important;
+      list-style: none !important;
+    }
+    nav ul li a {
+      display: block !important;
+      padding: 10px 22px !important;
+      color: #6d8b74 !important;
+      text-decoration: none !important;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 1.08em;
+      transition: background 0.22s, color 0.22s, box-shadow 0.22s;
+      white-space: nowrap;
+    }
+    nav ul li a.active,
+    nav ul li a:hover {
+      background: #6d8b74 !important;
+      color: #fff !important;
+      box-shadow: 0 2px 8px rgba(109, 139, 116, 0.13);
+    }
+    main .content {
+      background: rgba(255, 255, 255, 0.97) !important;
+      margin: 36px auto 24px auto !important;
+      max-width: 900px !important;
+      width: 92vw !important;
+      border-radius: 18px;
+      box-shadow: 0 4px 32px rgba(109, 139, 116, 0.07);
+      padding: 38px 36px 32px 36px !important;
+    }
+    .cafe-list {
+      margin-top: 28px !important;
+      padding-left: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 32px;
+      list-style: none !important;
+    }
+    .cafe-card {
+      display: flex !important;
+      align-items: flex-start;
+      gap: 24px;
+      background: #f0e9df !important;
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(109, 139, 116, 0.09);
+      padding: 28px 32px !important;
+      min-height: 140px;
+      margin-bottom: 0 !important;
+    }
+    .cafe-thumb {
+      width: 90px !important;
+      height: 90px !important;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(109, 139, 116, 0.13);
+      background: #e6e3d3;
+      flex-shrink: 0;
+    }
+    .cafe-info {
+      flex: 1;
+    }
+    .cafe-title {
+      font-size: 1.35em !important;
+      font-weight: bold !important;
+      color: #4d5c43 !important;
+      margin-bottom: 4px !important;
+      letter-spacing: 1px;
+    }
+    .cafe-subtitle {
+      font-size: 1em !important;
+      color: #888 !important;
+      margin-bottom: 12px !important;
+    }
+    .cafe-desc {
+      font-size: 1.08em !important;
+      color: #5c6c3f !important;
+      line-height: 1.7;
+    }
+    /* 平板設備 */
+    @media screen and (max-width: 1024px) {
+      .cafe-card {
+        padding: 24px !important;
+      }
+      nav ul {
+        gap: 0.3rem !important;
+        padding: 0.4rem !important;
+      }
+      nav ul li a {
+        padding: 0.7rem 1rem !important;
+        font-size: 0.95em !important;
+      }
+      main .content {
+        width: 85vw !important;
+      }
+    }
+
+    /* 手機設備 */
+    @media screen and (max-width: 768px) {
+      header {
+        border-radius: 0 0 15px 15px !important;
+      }
+      .top h1 {
+        font-size: 1.8em !important;
+        padding-top: 20px !important;
+      }
+      .top h4 {
+        font-size: 0.9em !important;
+      }
+      nav ul {
+        padding: 0 2vw !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.2rem !important;
+      }
+      nav ul li {
+        width: 90% !important;
+        margin: 2px 0 !important;
+      }
+      nav ul li a {
+        padding: 8px 0 !important;
+        text-align: center !important;
+        font-size: 1em !important;
+      }
+      main .content {
+        padding: 20px 4vw !important;
+        width: 92vw !important;
+        margin: 20px auto !important;
+        border-radius: 12px !important;
+      }
+      .cafe-card {
+        flex-direction: column !important;
+        gap: 15px !important;
+        padding: 16px !important;
+      }
+      .cafe-thumb {
+        width: 100% !important;
+        height: 180px !important;
+        margin: 0 auto !important;
+      }
+      .cafe-info {
+        text-align: center !important;
+      }
+      .cafe-title {
+        font-size: 1.2em !important;
+      }
+      .cafe-subtitle {
+        font-size: 0.9em !important;
+      }
+      .cafe-desc {
+        font-size: 1em !important;
+      }
+    }
+
+    /* 小型手機設備 */
+    @media screen and (max-width: 480px) {
+      .top h1 {
+        font-size: 1.5em !important;
+      }
+      .top h4 {
+        font-size: 0.8em !important;
+      }
+      main .content {
+        padding: 15px 3vw !important;
+      }
+      .cafe-thumb {
+        height: 150px !important;
+      }
+      .cafe-card {
+        padding: 12px !important;
+      }
+    }
+    footer {
+      text-align: center !important;
+      color: #aaa !important;
+      font-size: 0.95em !important;
+      margin: 30px 0 10px 0 !important;
+    }
+  </style>
+
+  <body class="container">
+    <header>
+      <div class="top">
+        <h1>☆ 探探彰化咖啡廳 ☆</h1>
+        <h4 style="color: beige">| 彰師大寶山校區附近的5間可愛咖啡廳! |</h4>
+        <hr />
+      </div>
+      <nav>
+        <ul>
+          <li><a class="active" href="#">introduce!</a></li>
+          <li><a href="./one.html">Onedayoneday</a></li>
+          <li><a href="./two.html">裝咖所在</a></li>
+          <li><a href="./three.html">White Cube Cafe</a></li>
+          <li><a href="./four.html">榯玖珈琲所</a></li>
+          <li><a href="./five.html">小客廳咖啡館</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="content">
+        <h4 style="color: rgb(92, 108, 63); font-weight: 600">
+          歡迎來到「寶山咖啡地圖」！這裡蒐集了寶山校區附近學生最愛、適合唸書、聊天、放鬆的咖啡廳。不論你是要寫作業還是放空，我們都幫你找好地方了！
+        </h4>
+        <div class="cafe-list">
+          <div class="cafe-card">
+            <img
+              class="cafe-thumb"
+              src="img/oneday1.png"
+              alt="一天一天 ONE DAY ONE DAY"
+            />
+            <div class="cafe-info">
+              <div class="cafe-title">一天一天 ONE DAY ONE DAY</div>
+              <div class="cafe-subtitle">貓咪超級可愛 戚風蛋糕很好吃！</div>
+              <div class="cafe-desc">
+                店裡面有三隻貓咪喔，裡面的裝潢也超級好拍照 ☆ 很有讀書氣氛。
+              </div>
+            </div>
+          </div>
+          <div class="cafe-card">
+            <img class="cafe-thumb" src="img/coffee21.png" alt="裝咖所在" />
+            <div class="cafe-info">
+              <div class="cafe-title">裝咖所在</div>
+              <div class="cafe-subtitle">
+                輕鬆舒服空間，布丁和提拉米蘇都很不錯！
+              </div>
+              <div class="cafe-desc">
+                獨自渡過悠閒的下午或和朋友聚會都很適合 ☆
+              </div>
+            </div>
+          </div>
+          <div class="cafe-card">
+            <img
+              class="cafe-thumb"
+              src="img/whitecube1.png"
+              alt="White Cube Cafe"
+            />
+            <div class="cafe-info">
+              <div class="cafe-title">White Cube Cafe</div>
+              <div class="cafe-subtitle">文創小物、閱讀空間、純白裝潢</div>
+              <div class="cafe-desc">
+                一樓有販賣文創小物，二樓有書櫃可自取在店內閱讀 ☆
+                純白色的裝潢，讓人可以很放鬆悠閒的喝咖啡！
+              </div>
+            </div>
+          </div>
+          <div class="cafe-card">
+            <img class="cafe-thumb" src="img/19_1.png" alt="榯玖珈琲所" />
+            <div class="cafe-info">
+              <div class="cafe-title">榯玖珈琲所</div>
+              <div class="cafe-subtitle">溫馨小空間，手沖咖啡很好喝！</div>
+              <div class="cafe-desc">
+                空間雖然比較小，老闆很喜歡跟客人聊天，但讓人感覺很自在 ☆
+              </div>
+            </div>
+          </div>
+          <div class="cafe-card">
+            <img class="cafe-thumb" src="img/living1.png" alt="小客廳咖啡館" />
+            <div class="cafe-info">
+              <div class="cafe-title">小客廳咖啡館</div>
+              <div class="cafe-subtitle">慵懶氣氛像在家裡客廳一樣</div>
+              <div class="cafe-desc">
+                小小的空間
+                就在八卦山大佛門口對面，適合和好朋友一起來吃早午餐喝咖啡！☆
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>&copy; 2024 彰化咖啡廳地圖 | Designed by Coffee Lovers</footer>
+  </body>
+</html>

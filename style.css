@@ -1,0 +1,39 @@
+.top {
+  background-color: rgb(92, 108, 63);
+}
+
+h1 {
+  color: antiquewhite;
+}
+h2 {
+  font-weight: bold;
+  color: white;
+  background-color: rgb(92, 108, 63);
+}
+h4 {
+  color: rgb(92, 108, 63);
+}
+
+.table {
+  border-collapse: collapse;
+}
+.collapse {
+  border-collapse: collapse;
+  border-color: darkolivegreen;
+}
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+header nav ul {
+  display: flex;
+  list-style-type: none;
+}
+
+header nav ul li {
+  padding: 0.8rem 1.2rem;
+}
+nav li :hover {
+  color: darkolivegreen;
+}
